@@ -4,6 +4,7 @@ function Book(title, author, totalPages) {
     this.title = title;
     this.author = author;
     this.totalPages = totalPages;
+    this.done = false;
 
 }
 
@@ -118,6 +119,8 @@ const deleteBook =(id)=>{
 
 const markAsDone =(id)=>{
     let book= document.getElementById(id);
+    myLibrary.filter(b => b.id === id)
+        .forEach(b => b.done = true);
     book.className ="card bg-success border border-1 border-white me-2 mb-2 book";
 }
 
